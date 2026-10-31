@@ -1,37 +1,14 @@
-export const people = [
-  {
-    id: "1",
-    name: "Grandfather",
-    gender: "male",
-    x: 300,
-    y: 50,
-  },
-  {
-    id: "2",
-    name: "Grandmother",
-    gender: "female",
-    x: 500,
-    y: 50,
-  },
-  {
-    id: "3",
-    name: "Father",
-    gender: "male",
-    x: 250,
-    y: 220,
-  },
-  {
-    id: "4",
-    name: "Mother",
-    gender: "female",
-    x: 450,
-    y: 220,
-  },
-  {
-    id: "5",
-    name: "You",
-    gender: "male",
-    x: 350,
-    y: 400,
-  },
+export type Person = {
+  id: string;
+  name: string;
+  parentIds: string[];
+};
+
+// Fictional people for the demo; IDs keep relationships separate from names.
+export const people: Person[] = [
+  { id: "1", name: "Alex Morgan", parentIds: [] },
+  { id: "2", name: "Sam Morgan", parentIds: [] },
+  { id: "3", name: "Jamie Morgan", parentIds: ["1", "2"] },
+  { id: "4", name: "Taylor Reed", parentIds: [] },
+  { id: "5", name: "Casey Morgan", parentIds: ["3", "4"] },
 ];

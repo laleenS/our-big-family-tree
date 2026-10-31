@@ -1,21 +1,15 @@
+import type { Person } from "../data/family";
+
 type Props = {
-  name: string;
-  gender: string;
+  person: Person;
+  parents: string[];
 };
 
-export default function PersonCard({ name, gender }: Props) {
-  const border =
-    gender === "male"
-      ? "border-blue-400"
-      : "border-pink-400";
-
+export default function PersonCard({ person, parents }: Props) {
   return (
-    <div
-      className={`rounded-xl border-2 ${border} bg-white px-4 py-3 shadow-md w-40 text-center`}
-    >
-      <div className="text-lg font-semibold">
-        {name}
-      </div>
-    </div>
+    <li className="person-card">
+      <h3>{person.name}</h3>
+      <p>{parents.length ? `Parents: ${parents.join(" and ")}` : "No parents recorded"}</p>
+    </li>
   );
 }
