@@ -1,4 +1,12 @@
-export const people = [
+export type Person = {
+  id: string;
+  name: string;
+  gender: "male" | "female" | "other";
+  x: number;
+  y: number;
+};
+
+export const people: Person[] = [
   {
     id: "1",
     name: "Grandfather",
@@ -30,7 +38,7 @@ export const people = [
   {
     id: "5",
     name: "You",
-    gender: "male",
+    gender: "other",
     x: 350,
     y: 400,
   },
