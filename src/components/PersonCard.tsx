@@ -1,21 +1,16 @@
-type Props = {
-  name: string;
-  gender: string;
-};
+import type { Person } from "../data/family";
+
+type Props = Pick<Person, "name" | "gender">;
 
 export default function PersonCard({ name, gender }: Props) {
-  const border =
-    gender === "male"
-      ? "border-blue-400"
-      : "border-pink-400";
+  let border = "border-slate-400";
+
+  if (gender === "male") border = "border-blue-400";
+  if (gender === "female") border = "border-pink-400";
 
   return (
-    <div
-      className={`rounded-xl border-2 ${border} bg-white px-4 py-3 shadow-md w-40 text-center`}
-    >
-      <div className="text-lg font-semibold">
-        {name}
-      </div>
+    <div className={`w-40 rounded-xl border-2 ${border} bg-white px-4 py-3 text-center shadow-sm`}>
+      <div className="font-semibold text-slate-900">{name}</div>
     </div>
   );
 }
