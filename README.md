@@ -1,32 +1,32 @@
 # Our Big Family Tree
 
-I built this to practice showing related data in React rather than just a list of
-unconnected cards. It uses Next.js, React, TypeScript, and CSS with Tailwind's reset.
+A small family-tree project using Next.js, React, and TypeScript. The idea is to
+practice working with related data: each person has an ID, and parent relationships
+refer to those IDs.
 
-You can search fictional people by name and add a person with up to two recorded
-parents. Cards are grouped by generation and show the parents' names. Search ignores
-capitalization and extra spaces. Adding people does not save them anywhere: reloading
-restores the sample tree. Please use made-up names, not private family information.
+You can search by name and add a person with up to two parents. The cards are grouped
+by generation. All the sample people are fictional. New entries disappear when the
+page reloads, so please use made-up names.
 
-## Run it
+## Run locally
 
-Use Node.js 22 or 24 and npm:
+Use Node.js 22 or 24. From the project folder:
 
 ```sh
 npm ci
 npm run dev
+```
+
+Open `http://localhost:3000`. To check the project:
+
+```sh
 npm run lint
 npm run build
 ```
 
-The development server uses port 3000. `npm start` serves a completed production build.
-No account, API key, database, or network font download is needed.
+The main component is `src/components/FamilyTree.tsx`, and the sample data is in
+`src/data/family.ts`. This project focuses on React state, form validation, and
+keeping relationships separate from display names.
 
-The main code is in `src/components/FamilyTree.tsx`. `src/data/family.ts` contains
-the `Person` type and sample data; relationships use IDs instead of matching names.
-I practiced controlled inputs, form validation, React state, and deriving generations
-from parent relationships. Choosing only existing parents prevents cycles when adding.
-
-This is a small demo, not a genealogy service. It does not edit/delete people, save
-changes, record spouses, or draw relationship lines. A future version could add local
-export/import and a diagram once those basics have useful tests.
+There is no database or sign-in. Editing people, saving changes, and drawing
+relationship lines are not included yet. Saving the tree would be a useful next step.
